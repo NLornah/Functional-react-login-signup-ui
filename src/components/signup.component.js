@@ -13,7 +13,7 @@ export default class SignUp extends Component {
   }
   handleSubmit(e){
     e.preventDefault();
-    const{fname, lname, email, password } =this.state;
+    const{fname, lname, email, password } = this.state;
     console.log(fname, lname, email, password);
     fetch("http://localhost:3000/register",{
       method:"POST",
@@ -38,7 +38,7 @@ export default class SignUp extends Component {
   }
   render() {
     return (
-      <form onSubmit={ this .handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <h3>Sign Up</h3>
 
         <div className="mb-3">
