@@ -17,7 +17,7 @@ componentDidMount(){
       })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "userRegister");
+        console.log(data, "userData");
       })
   
 }
