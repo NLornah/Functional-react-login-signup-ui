@@ -1,8 +1,10 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component} from "react";
 // import AdminHome from "./adminHome";
 
 // import UserHome from "./userHome";
-componentDidMount(){
+export default class UserDetails extends Component {
+
+componentDidMount() {
     fetch("http://localhost:3000/userData",{
         method:"POST",
         crossDomain:"true",
@@ -12,7 +14,7 @@ componentDidMount(){
           "Access-Control-Allow-Origin":"*"
         },
         body: JSON.stringify({
-         token,
+          token: window.localStorage.getItem("token"),
         }),
       })
       .then((res) => res.json())
@@ -21,7 +23,7 @@ componentDidMount(){
       })
   
 }
-export default class UserDetails extends Component {
+
     render() {
         return(
             <div>
