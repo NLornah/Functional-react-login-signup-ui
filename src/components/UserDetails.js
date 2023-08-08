@@ -3,6 +3,12 @@ import React, { Component} from "react";
 
 // import UserHome from "./userHome";
 export default class UserDetails extends Component {
+  constructor(props){
+    super(props);
+    this.state ={
+    userData:""
+    };
+  }
 
 componentDidMount() {
     fetch("http://localhost:3000/userData",{
@@ -20,6 +26,7 @@ componentDidMount() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data, "userData");
+        this.setState({userData: data.data})
       })
   
 }
@@ -27,8 +34,8 @@ componentDidMount() {
     render() {
         return(
             <div>
-                Name<h1>Jayy</h1>
-                Email<h1>Jayy@123</h1>
+                Name<h1>{this.state.userData.fname}</h1>
+                Email<h1>{this.state.userData.email}</h1>
             </div>
         );
     }
